@@ -9,6 +9,7 @@ El objetivo es familiarizarse con la estructura básica de un proyecto Flutter y
 - Botón que cambia el título con `setState()` y muestra un `SnackBar`.
 - Contenedor estilizado (padding, margen, bordes, colores).
 - Lista con elementos (`ListView`).
+- Funcionamiento de los 2 widgets adicionales.
 
 ---
 
