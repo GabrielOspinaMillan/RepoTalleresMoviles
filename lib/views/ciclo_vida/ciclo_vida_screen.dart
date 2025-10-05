@@ -72,9 +72,7 @@ class CicloVidaScreenState extends State<CicloVidaScreen> {
   /// POR QUÉ: Notifica a Flutter que el estado interno cambió y debe reconstruir el widget llamando a build().
   void actualizarTexto() {
     setState(() {
-      texto = "Texto actualizado 🟠";
-      // setState() indica a Flutter que debe reconstruir el widget con el nuevo estado.
-    });
+      texto = "Texto actualizado 🟠";    });
   }
 
   /// dispose()
