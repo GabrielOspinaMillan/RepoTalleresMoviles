@@ -159,6 +159,78 @@ El **Drawer** contiene accesos rápidos a las principales pantallas como **Home*
 
 <img width="386" height="830" alt="image" src="https://github.com/user-attachments/assets/e6ef6944-6f29-4461-8274-0fd23d74cd32" />
 
+   # Taller 3 - Segundo Plano
+
+## 📸 Capturas de pantalla
+Estado inicial de la app.
+
+<img width="372" height="820" alt="image" src="https://github.com/user-attachments/assets/bccf9368-9976-4071-9610-838e2502ee8c" />
+
+Este proyecto es una aplicación Flutter que demuestra el uso de diferentes conceptos de programación asíncrona y manejo de tareas pesadas. Incluye ejemplos de `Future`, `async/await`, `Timer` e `Isolate`.
+
+## Cuándo usar:
+
+### 1. **Future**
+- **Uso:** Cuando necesitas realizar una operación que puede completarse en el futuro, como una consulta a una API o una operación de lectura/escritura de archivos.
+- **Ejemplo:** Consultar datos de un servicio web.
+
+### 2. **async/await**
+- **Uso:** Para manejar operaciones asíncronas de manera más legible y evitar el uso de callbacks. `async` se utiliza para marcar una función como asíncrona, y `await` se usa para esperar el resultado de un `Future`.
+- **Ejemplo:** Esperar el resultado de una consulta a una API antes de continuar con la ejecución del código.
+
+### 3. **Timer**
+- **Uso:** Para ejecutar una función después de un período de tiempo específico o para ejecutar una función repetidamente en intervalos regulares.
+- **Ejemplo:** Usar un `Timer` para actualizar un cronómetro cada segundo.
+
+### 4. **Isolate**
+- **Uso:** Para ejecutar tareas pesadas que pueden bloquear la interfaz de usuario. Los `Isolates` permiten ejecutar código en un hilo separado, evitando que la UI se congele.
+- **Ejemplo:** Realizar cálculos intensivos, como sumar grandes números o procesar datos.
+
+## Diagrama de Pantallas y Flujos
+
+### Pantallas
+1. **HomeScreen**
+   - Botones para navegar a:
+     - Asincronía
+     - Cronómetro
+     - Isolate Demo
+
+2. **Asincronía**
+   - Muestra el estado de carga y el resultado de una operación asíncrona.
+
+3. **Cronómetro**
+   - Permite iniciar, pausar, reanudar y reiniciar un cronómetro.
+
+4. **Isolate Demo**
+   - Ejecuta una tarea pesada en un Isolate y muestra el resultado.
+
+### Flujos
+- **Flujo de Asincronía:**
+  1. El usuario presiona el botón "Ir a Asincronía".
+  2. Se muestra un indicador de carga mientras se realiza la operación.
+  3. Se muestra el resultado o un error.
+ 
+     <img width="260" height="583" alt="image" src="https://github.com/user-attachments/assets/12090fbf-3fc4-46a6-898e-c83d9879e08d" />
+
+
+- **Flujo de Cronómetro:**
+  1. El usuario presiona el botón "Ir al Cronómetro".
+  2. Se muestra el tiempo en formato HH:MM:SS.
+  3. El usuario puede iniciar, pausar, reanudar o reiniciar el cronómetro.
+ 
+     <img width="221" height="485" alt="image" src="https://github.com/user-attachments/assets/38b49fdb-f08e-4731-bf0b-fd276fef11c2" />
+
+
+- **Flujo de Isolate:**
+  1. El usuario presiona el botón "Ir a Isolate Demo".
+  2. Se inicia una tarea pesada en un Isolate.
+  3. Se muestra un indicador de carga y, al finalizar, el resultado.
+ 
+     <img width="232" height="515" alt="image" src="https://github.com/user-attachments/assets/58ae1cd0-ef29-4ca0-8b94-7993dbb12f07" />
+
+
+
+
 ## 👤 Datos
 - **Nombre completo:** Gabriel Ospina Millán  
 - **Código:** 230221001
