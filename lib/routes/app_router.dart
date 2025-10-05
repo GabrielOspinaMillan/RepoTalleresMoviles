@@ -6,6 +6,9 @@ import 'package:taller1/views/paso_parametros/detalle_screen.dart';
 import 'package:taller1/views/paso_parametros/detalle_screen_home.dart';
 import 'package:taller1/views/home/info_tab_grid.dart';
 import 'package:taller1/views/home/config.dart';
+import 'package:taller1/views/home/asincronia.dart';
+import 'package:taller1/views/home/cronometro.dart';
+import 'package:taller1/views/home/isolate.dart';
 
 final GoRouter appRouter = GoRouter(
   routes: [
@@ -60,6 +63,21 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/settings',
       builder: (context, state) => const ConfigScreen(), // Placeholder
-    )
+    ),
+    GoRoute(
+      path: '/asincronia',
+      name: 'Asincronia',
+      builder: (context, state) => const AsincroniaScreen(),
+    ),
+    GoRoute(
+      path: '/cronometro',
+      name: 'Cronometro',
+      builder: (context, state) => const CronometroScreen(),
+    ),
+    GoRoute(
+      path: '/isolate',
+      name: 'Isolate',
+      builder: (context, state) => const IsolateScreen(),
+    ),
   ],
 );
