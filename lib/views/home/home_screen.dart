@@ -98,9 +98,26 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             const SizedBox(height: 40),
-            ElevatedButton(
-              onPressed: _cambiarTitulo,
-              child: const Text("Cambiar Título"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: _cambiarTitulo,
+                  child: const Text("Cambiar Título"),
+                ),
+                const SizedBox(width: 16),
+                ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.teal,
+                  ),
+                  onPressed: () => context.go('/categorias_api'),
+                  icon: const Icon(Icons.fastfood, color: Colors.white),
+                  label: const Text(
+                    "Ver lista de comidas",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 20),
             GestureDetector(
