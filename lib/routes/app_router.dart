@@ -9,6 +9,8 @@ import 'package:taller1/views/home/config.dart';
 import 'package:taller1/views/home/asincronia.dart';
 import 'package:taller1/views/home/cronometro.dart';
 import 'package:taller1/views/home/isolate.dart';
+import 'package:taller1/views/home/categorias_api.dart';
+import 'package:taller1/views/home/detail_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   routes: [
@@ -79,5 +81,24 @@ final GoRouter appRouter = GoRouter(
       name: 'Isolate',
       builder: (context, state) => const IsolateScreen(),
     ),
+    GoRoute(
+      path: '/categorias_api',
+      name: 'CategoriasAPI',
+      builder: (context, state) => const CategoriesScreen(),
+    ), 
+    GoRoute(
+  path: '/categoria_detalle',
+  name: 'CategoriaDetalle',
+  builder: (context, state) {
+    // recuperamos los datos que enviamos con 'extra'
+    final data = state.extra as Map<String, dynamic>;
+    return CategoriaDetalleScreen(
+      id: data['id'],
+      nombre: data['nombre'],
+      imagen: data['imagen'],
+      descripcion: data['descripcion'],
+    );
+  },
+),
   ],
 );

@@ -228,6 +228,102 @@ Este proyecto es una aplicación Flutter que demuestra el uso de diferentes conc
  
      <img width="232" height="515" alt="image" src="https://github.com/user-attachments/assets/58ae1cd0-ef29-4ca0-8b94-7993dbb12f07" />
 
+ # Taller 4 - Consumo de API
+
+## 📸 Capturas de pantalla
+Estado inicial de la app.
+
+<img width="365" height="818" alt="image" src="https://github.com/user-attachments/assets/d41c235e-1314-4b95-b9ce-d66a2731d2c8" />
+
+# 🍽️ Consumo de API - Categorías de Comidas (TheMealDB)
+
+Proyecto Flutter que consume la API pública de [TheMealDB](https://www.themealdb.com/api.php) para listar categorías de comidas, mostrar detalles al usuario y gestionar estados de carga, error y éxito.  
+Implementa **go_router** para navegación, separación por capas y buenas prácticas en el manejo de peticiones HTTP.
+
+---
+
+## 🚀 Descripción general
+
+La aplicación permite:
+- Obtener categorías de comidas desde una API REST.
+- Mostrar nombre, imagen y descripción resumida de cada categoría.
+- Navegar a una pantalla de detalle con información ampliada.
+- Visualizar estados de **cargando**, **éxito** o **error**.
+- Mantener una arquitectura modular (models, services, views).
+
+---
+
+## 🌐 API utilizada
+
+ https://www.themealdb.com/api/json/v1/1/categories.php
+
+Ejemplo de respuesta JSON:
+
+**Método:** `GET`
+
+**Ejemplo de respuesta JSON:**
+```json
+{
+  "categories": [
+    {
+      "idCategory": "1",
+      "strCategory": "Beef",
+      "strCategoryThumb": "https://www.themealdb.com/images/category/beef.png",
+      "strCategoryDescription": "Beef is the culinary name for meat from cattle..."
+    },
+    {
+      "idCategory": "2",
+      "strCategory": "Chicken",
+      "strCategoryThumb": "https://www.themealdb.com/images/category/chicken.png",
+      "strCategoryDescription": "Chicken is a type of poultry..."
+    }
+  ]
+}
+```
+### El proyecto está organizado de la siguiente manera:
+
+models/
+Contiene los modelos de datos. En este caso, el archivo themeal.dart define la estructura de una categoría y el método fromJson para mapear los datos obtenidos de la API.
+
+services/
+Contiene la capa de servicios. El archivo api_services.dart se encarga de realizar las peticiones HTTP a la API y manejar los errores o respuestas exitosas.
+
+views/
+Incluye las pantallas principales de la aplicación.
+
+categorias_api.dart: muestra el listado de categorías con FutureBuilder y manejo de estados (cargando, éxito, error).
+
+detail_screen.dart: muestra los detalles de una categoría seleccionada, incluyendo la imagen y descripción.
+
+### Rutas definidas con `go_router`
+
+| Ruta                        | Widget                   | Parámetros                         | Descripción                                |
+|------------------------------|-------------------------|-----------------------------------|--------------------------------------------|
+| `/`                          | `HomeScreen`             | -                                 | Pantalla principal                          |
+| `/categorias_api`             | `CategoriesScreen`       | -                                 | Listado de categorías                       |
+| `/categoria_detalle`          | `CategoriaDetalleScreen` | `id, nombre, imagen, desc`        | Detalle de categoría (por extra)           |
+| `/asincronia`                 | `AsincroniaScreen`       | -                                 | Ejemplo Future / async / await             |
+| `/cronometro`                 | `CronometroScreen`       | -                                 | Cronómetro con Timer                        |
+| `/isolate`                    | `IsolateScreen`          | -                                 | Ejemplo de Isolate                          |
+| `/settings`                   | `ConfigScreen`           | -                                 | Configuración                               |
+| `/info_tab_grid`              | `InfoTabGrid`            | -                                 | TabBar y GridView                            |
+| `/ciclo_vida`                 | `CicloVidaScreen`        | -                                 | Ciclo de vida de StatefulWidget             |
+| `/paso_parametros`            | `PasoParametrosScreen`   | -                                 | Paso de parámetros                           |
+| `/detalle/:parametro/:metodo`| `DetalleScreen`          | `parametro, metodo`               | Detalle con parámetros por URL              |
+| `/detalleHome/:parametro/:metodo` | `DetalleScreenHome`   | `parametro, metodo`               | Detalle desde Home                           |
+
+**Notas sobre parámetros:**
+
+- En rutas como `/detalle/:parametro/:metodo` se envían parámetros por URL.  
+- En `/categoria_detalle` se envían datos usando `extra` (mapa con `id`, `nombre`, `imagen` y `descripción`).
+
+  <img width="377" height="828" alt="image" src="https://github.com/user-attachments/assets/7bf94b5c-53d0-4fc6-ab59-cc1a6ce08ef3" />
+
+  <img width="370" height="825" alt="image" src="https://github.com/user-attachments/assets/c1e699ad-0e81-4e9e-8573-72ae629e6a88" />
+
+
+<img width="1122" height="207" alt="image" src="https://github.com/user-attachments/assets/b08f5318-098f-4e8e-a6fc-b495ba2b8868" />
+
 
 
 
