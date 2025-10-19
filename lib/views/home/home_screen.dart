@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 ElevatedButton(
                   onPressed: _cambiarTitulo,
-                  child: const Text("Cambiar Título"),
+                  child: const Text("¡Cambiar Título!"),
                 ),
                 const SizedBox(width: 16),
                 ElevatedButton.icon(
