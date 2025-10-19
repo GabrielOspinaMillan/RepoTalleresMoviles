@@ -324,7 +324,121 @@ detail_screen.dart: muestra los detalles de una categoría seleccionada, incluye
 
 <img width="1122" height="207" alt="image" src="https://github.com/user-attachments/assets/b08f5318-098f-4e8e-a6fc-b495ba2b8868" />
 
+# 📱 Taller 5 - Distribución de Aplicación Flutter con Firebase App Distribution
 
+Este proyecto demuestra el proceso de **generación, distribución y prueba de versiones APK** en Flutter utilizando **Firebase App Distribution** como herramienta de control de calidad (QA).  
+El flujo seguido permite que testers externos reciban, instalen y actualicen la aplicación de manera controlada antes de su publicación final.
+
+---
+
+## 🔄 **Flujo general del proceso**
+
+**1. Generar APK → 2. App Distribution → 3. Testers → 4. Instalación → 5. Actualización**
+
+1. **Generar APK:**  
+   Se ejecuta el comando `flutter build apk --release` para compilar una versión lista para distribución.
+
+2. **App Distribution:**  
+   El archivo `app-release.apk` se sube al panel de Firebase App Distribution, donde se asignan grupos de prueba (por ejemplo, `QA_Clase`).
+
+3. **Testers:**  
+   Los testers reciben un correo de invitación con un enlace para descargar e instalar la aplicación.
+
+4. **Instalación:**  
+   El tester instala la app en su dispositivo Android físico y ejecuta las pruebas funcionales básicas.
+
+5. **Actualización:**  
+   Cuando se genera una nueva versión, se sube el nuevo APK.
+
+---
+
+## 🚀 **Publicación (Resumen de pasos)**
+
+1. **Generar build de release**
+   ```bash
+   flutter build apk --release
+   ```
+   El archivo se genera en:
+   ```
+   build/app/outputs/flutter-apk/app-release.apk
+   ```
+
+2. **Acceder a Firebase Console**  
+   - Ir a **Compilación → App Distribution**  
+   - Subir el APK generado  
+   - Asignar grupo `QA_Clase`  
+   - Agregar testers
+
+3. **Añadir notas de versión**  
+   Ejemplo:
+   ```
+   ✅ Versión 1.0.2 (19/10/2025)
+   - Corrección en pantalla de inicio
+   ```
+
+4. **Distribuir el release**  
+   Firebase enviará automáticamente el correo con el enlace de instalación.
+
+5. **Verificar instalación y actualización**  
+   - Instalar desde el enlace recibido  
+   - Probar las funcionalidades  
+   - Subir nueva versión incrementando el `versionCode` y `versionName`.
+
+---
+
+## 🧩 **Notas sobre versionado**
+
+El control de versiones sigue el formato de Flutter:
+```
+version: 1.0.1+2
+```
+
+Donde:
+- **1.0.1** → `versionName` (visible para el usuario)
+- **+2** → `versionCode` (interno, obligatorio para distinguir builds en Firebase y Android)
+
+Cada actualización debe incrementar ambos valores en el archivo:
+```
+android/app/build.gradle
+```
+
+Ejemplo:
+```gradle
+defaultConfig {
+    applicationId "com.uceva.taller1"
+    versionCode 3
+    versionName "1.0.2"
+}
+```
+
+---
+
+## 🧾 **Formato usado para Release Notes**
+
+Se usó un formato breve, claro y cronológico para cada release:
+
+```
+✅ Versión 1.0.2 (19/10/2025)
+- Corrección en pantalla de inicio
+```
+
+---
+
+## 📸 **Evidencias y recursos**
+
+- Captura del panel de *Firebase App Distribution → Releases*
+  <img width="946" height="681" alt="image" src="https://github.com/user-attachments/assets/8bdce044-f81a-4c3e-8781-3f38742cf6da" />
+
+- Captura del grupo *QA_Clase* con tester agregado
+  <img width="921" height="478" alt="image" src="https://github.com/user-attachments/assets/7c14a8c6-f350-484f-8853-1bfd3d78f9cf" />
+
+- Captura del correo recibido con enlace de instalación
+  <img width="921" height="460" alt="image" src="https://github.com/user-attachments/assets/1e653946-ab00-4d37-b51f-eba4c7a7fbc3" />
+
+- Captura del proceso de instalación en dispositivo físico
+  
+  <img width="303" height="655" alt="image" src="https://github.com/user-attachments/assets/77a1d411-90a0-4bf3-8955-a70438a09993" />
+---
 
 
 ## 👤 Datos
