@@ -11,6 +11,9 @@ import 'package:taller1/views/home/cronometro.dart';
 import 'package:taller1/views/home/isolate.dart';
 import 'package:taller1/views/home/categorias_api.dart';
 import 'package:taller1/views/home/detail_screen.dart';
+import 'package:taller1/views/auth/login_screen.dart';
+import 'package:taller1/views/auth/session_screen.dart';
+import 'package:taller1/views/auth/register_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   routes: [
@@ -87,18 +90,30 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const CategoriesScreen(),
     ), 
     GoRoute(
-  path: '/categoria_detalle',
-  name: 'CategoriaDetalle',
-  builder: (context, state) {
-    // recuperamos los datos que enviamos con 'extra'
-    final data = state.extra as Map<String, dynamic>;
-    return CategoriaDetalleScreen(
-      id: data['id'],
-      nombre: data['nombre'],
-      imagen: data['imagen'],
-      descripcion: data['descripcion'],
-    );
-  },
-),
+      path: '/categoria_detalle',
+      name: 'CategoriaDetalle',
+      builder: (context, state) {
+        // recuperamos los datos que enviamos con 'extra'
+        final data = state.extra as Map<String, dynamic>;
+        return CategoriaDetalleScreen(
+          id: data['id'],
+          nombre: data['nombre'],
+          imagen: data['imagen'],
+          descripcion: data['descripcion'],
+        );
+      },
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      path: '/session',
+      builder: (context, state) => const SessionScreen(),
+    ),
+    GoRoute(
+      path: '/register',
+      builder: (context, state) => const RegisterScreen(),
+    ),
   ],
 );

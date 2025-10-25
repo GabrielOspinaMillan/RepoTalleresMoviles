@@ -68,6 +68,13 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(_titulo),
+        actions: [
+          IconButton(
+            tooltip: 'Iniciar sesión',
+            icon: const Icon(Icons.login),
+            onPressed: () => context.go('/login'), // Navega a LoginScreen
+          ),
+        ],
       ),
       drawer: const CustomDrawer(),
       body: SingleChildScrollView(
