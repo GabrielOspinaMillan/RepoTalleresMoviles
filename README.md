@@ -440,6 +440,54 @@ Se usó un formato breve, claro y cronológico para cada release:
   <img width="303" height="655" alt="image" src="https://github.com/user-attachments/assets/77a1d411-90a0-4bf3-8955-a70438a09993" />
 ---
 
+# 📱 Taller 6 - Session / Evidencia de sesión
+
+Descripción
+- Pantalla creada en `lib/views/auth/session_screen.dart`.
+- Muestra evidencia de la sesión del usuario leyendo datos locales y el estado del token.
+
+Qué muestra
+- Nombre y email: leídos desde `SharedPreferences` (claves: `name`, `email`).
+- Indicador de sesión: chip que muestra `token presente` (verde) o `sin token` (rojo) según exista el `access_token` en `flutter_secure_storage`.
+- Botón "Cerrar sesión": llama a `AuthService.logout()` que:
+  - Intenta invalidar el token en el backend (`POST /logout`) si hay token.
+  - Elimina `name` y `email` de `SharedPreferences`.
+  - Elimina `access_token` de `flutter_secure_storage`.
+  - Muestra un SnackBar y redirige a `/` (Home).
+
+Cómo se alimenta
+- `initState()` llama a `_loadSession()` que:
+  - usa `AuthService.getUserData()` para leer `SharedPreferences`.
+  - usa `AuthService.hasToken()` para comprobar `flutter_secure_storage`.
+  - guarda resultados en `_name`, `_email`, `_hasToken` y actualiza la UI.
+- Si hay token, la app puede opcionalmente invocar `AuthService.getProfile()` para obtener el perfil remoto.
+
+Rutas
+- Acceso: ruta `/session` (asegúrate de registrar `GoRoute(path: '/session', ...)` en `app_router.dart`).
+- Regresar: AppBar usa `context.go('/')` para volver a Home.
+
+Mensajes en consola (ejemplos)
+- Al cargar sesión:
+  - Session load - name:Juan email:juan@ej.com token:true
+- Al cerrar sesión:
+  - Sesión cerrada (SnackBar mostrado)
+- En errores (solo en debug):
+  - Error cargando sesión: Exception: ...
+
+Cómo probar
+1. Regístrate con `/register` o crea usuario vía API (`POST /users`).
+2. Inicia sesión en `/login` (guarda token y user en storage).
+3. Navega a `/session` — debe mostrarse nombre/email y `token presente`.
+4. Pulsar "Cerrar sesión" — token y datos locales se eliminan y se regresa a Home.
+5. Ver logs en consola para confirmar operaciones (solo en modo debug).
+
+
+Archivos relevantes
+- lib/views/auth/session_screen.dart
+- lib/services/auth_services.dart (métodos: getUserData, hasToken, getToken, logout, getProfile)
+- lib/views/auth/login_screen.dart
+- lib/views/auth/register_screen.dart
+- lib/routes/app_router.dart
 
 ## 👤 Datos
 - **Nombre completo:** Gabriel Ospina Millán  
