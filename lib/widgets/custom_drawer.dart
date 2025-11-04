@@ -85,6 +85,13 @@ class CustomDrawer extends StatelessWidget {
               context.go('/info_tab_grid');
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.school),
+            title: const Text('UNIVERSIDADES'),
+            onTap: () {
+              context.go('/universidades');
+            },
+          ),
         ],
       ),
     );
