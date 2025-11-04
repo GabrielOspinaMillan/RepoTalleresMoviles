@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:taller1/routes/app_router.dart';
-import 'themes/app_theme.dart'; // Importar el tema
+import 'themes/app_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: '.env'); // carga .env
+  await dotenv.load(fileName: '.env');
+
+  try {
+    // Inicializar Firebase antes de usar cualquier servicio (Firestore, Auth, etc.)
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  } catch (e) {
+    // En DEBUG imprime traza para depuración
+    // Si ocurre un error aquí, no se podrá usar Firebase en el resto de la app
+    // (ejecuta flutter run -v para más detalle)
+      print('❌ Error inicializando Firebase: $e');
+  }
+
   runApp(const MyApp());
 }
 

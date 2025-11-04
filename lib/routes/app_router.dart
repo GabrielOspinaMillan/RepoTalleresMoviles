@@ -14,6 +14,9 @@ import 'package:taller1/views/home/detail_screen.dart';
 import 'package:taller1/views/auth/login_screen.dart';
 import 'package:taller1/views/auth/session_screen.dart';
 import 'package:taller1/views/auth/register_screen.dart';
+import 'package:taller1/views/universidades/universidades_screen.dart';
+import 'package:taller1/views/universidades/list_universidad_screen.dart';
+import 'package:taller1/views/universidades/add_universidad_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   routes: [
@@ -114,6 +117,18 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/register',
       builder: (context, state) => const RegisterScreen(),
+    ),
+    GoRoute(
+      path: '/universidades',
+      builder: (context, state) => const UniversidadesScreen(),
+    ),
+    GoRoute(
+      path: '/universidad_create',
+      builder: (context, state) => const AddUniversidadScreen(),
+    ),
+    GoRoute(
+      path: '/universidades_list',
+      builder: (context, state) => const ListUniversidadScreen(),
     ),
   ],
 );
