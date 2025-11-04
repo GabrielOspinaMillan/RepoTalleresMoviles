@@ -9,13 +9,12 @@ class AuthService {
   final _secureStorage = const FlutterSecureStorage();
   static const _tokenKey = 'access_token';
 
-  // base API tomada desde .env
   final String _base = dotenv.env['API_BASE_URL'] ?? 'https://parking.visiontic.com.co/api';
 
   Future<bool> login(String email, String password) async {
     final loginUrl = Uri.parse('$_base/login');
     try {
-      if (kDebugMode) print('⏳ Iniciando login para $email -> $loginUrl');
+      if (kDebugMode) print('Iniciando login para $email -> $loginUrl');
       final resp = await http.post(
         loginUrl,
         headers: {'Content-Type': 'application/json'},
@@ -24,8 +23,6 @@ class AuthService {
 
       if (resp.statusCode == 200) {
         final Map<String, dynamic> body = json.decode(resp.body);
-
-        // Buscar token en la respuesta (ajusta claves según tu API)
         final token = body['access_token'] ?? body['token'] ?? body['data']?['access_token'];
         final user = body['user'] ?? body['data']?['user'] ?? body;
 
@@ -45,11 +42,11 @@ class AuthService {
         return true;
       } else {
         final msg = 'Login fallido: ${resp.statusCode} ${resp.body}';
-        if (kDebugMode) print('❌ $msg');
+        if (kDebugMode) print(msg);
         throw Exception(msg);
       }
     } catch (e) {
-      if (kDebugMode) print('❌ Error en login: $e');
+      if (kDebugMode) print('Error en login: $e');
       rethrow;
     }
   }

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "1053568863161",
-    "project_id": "bd-talleres",
-    "storage_bucket": "bd-talleres.firebasestorage.app"
+    "project_number": "1056530990131",
+    "project_id": "universidades-feb26",
+    "storage_bucket": "universidades-feb26.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1053568863161:android:39f913c3c5be8239694468",
+        "mobilesdk_app_id": "1:1056530990131:android:dbcfdf3053a6da7d5f8f46",
         "android_client_info": {
           "package_name": "com.example.taller1"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC9bTawYvpuulUtc1C7voHSfM04zP7ilU8"
+          "current_key": "AIzaSyBaLZkI2rCGbmCJ7K_Y7Z0CYj41W8rjMV8"
         }
       ],
       "services": {
